@@ -13,6 +13,7 @@ class UserController{
 		if(!$user){
 			die("Credentials not valid!");
 		}
+		$user = User::createToken($user);
 		header('Content-Type: application/json');
 		echo json_encode($user);
 		
@@ -38,7 +39,7 @@ class UserController{
 			die (json_encode($response));
 		}
 		$user = User::InsertOne($request);
-		$user = \APP\Resource\Util::createToken($user);
+		$user = User::createToken($user);
 		header('Content-Type: application/json');
 		echo json_encode($user);
 	}

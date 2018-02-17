@@ -16,7 +16,7 @@ class User extends Model {
 		$user =	User::findOne(['username' => $username]);
 		if($user && password_verify($password,$user->password))
 		{
-			return \APP\Resource\Util::createToken($user);
+			return $user;
 		}	
 		return 	null;
 	}
@@ -26,10 +26,23 @@ class User extends Model {
 		$user =	User::findOne(['username' => $username]);
 		if($user)
 		{
-			return \APP\Resource\Util::verifyToken($user,$token);
+			return User::verifyToken($user,$token);
 		}	
 		return 	null;
 	}
 
+	public static function createToken($user){
+		$token = hash("md5", API_SECRET_TOKEN.$user->_id);
+		$user = [ "username" => $user->username, "token" => $token];
+		return $user;
+	}
+
+	public static function verifyToken($user, $token){
+		if(hash("md5", API_SECRET_TOKEN.$user->_id) == $token){
+			return $user;
+		}else{
+			return null;
+		}
+	}
 
 }

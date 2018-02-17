@@ -27,18 +27,6 @@ class Util{
 		return $request;
 	}
 
-	public static function createToken($user){
-		$token = hash("md5", API_SECRET_TOKEN.$user->_id);
-		$user = [ "username" => $user->username, "token" => $token];
-		return $user;
-	}
-
-	public static function verifyToken($user, $token){
-		if(hash("md5", API_SECRET_TOKEN.$user->_id) == $token){
-			return $user;
-		}else{
-			return null;
-		}
-	}
+	
 
 }

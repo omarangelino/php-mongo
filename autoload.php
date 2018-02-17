@@ -6,3 +6,4 @@ require_once '../Model/User.php';
 require_once '../Resource/Util.php';
 require_once '../Controller/UserController.php';
 define('API_SECRET_TOKEN', "ASD#G33232412ftw");
+$request = APP\Resource\Util::getRequest();

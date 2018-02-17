@@ -9,23 +9,18 @@ switch ($requestUri[0]) {
 		require '../views/home.php';
 		break;
 	case '/user/login':
-		$request = APP\Resource\Util::getRequest();
 		App\Controller\UserController::login($request);
 		break;
 	case '/user/verify':
-		$request = APP\Resource\Util::getRequest();
 		App\Controller\UserController::verify($request);
 		break;
 	case '/user/create':
-		$request = APP\Resource\Util::getRequest();
 		App\Controller\UserController::create($request);
 		break;
 	case '/user/update':
-		$request = APP\Resource\Util::getRequest();
 		App\Controller\UserController::update($request);
 		break;
 	case '/user/delete':
-		$request = APP\Resource\Util::getRequest();
 		App\Controller\UserController::delete($request);
 		break;
 	default:

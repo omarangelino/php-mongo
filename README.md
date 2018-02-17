@@ -11,4 +11,4 @@ Steps to run locally:
    * run local mongo db
    * you may change API SECRET KEY 
 
--This version doesn't have validator. Is a work in progress.
+-This version doesn't have validators. Is a work in progress.

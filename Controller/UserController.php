@@ -6,7 +6,8 @@ use App\Models\User;
 
 class UserController{
 
-	public static function Login($request){
+	public function Login($request)
+	{
 		$password = $request->password;
 		$username = $request->username;
 		$user = User::findUserByCredentials($username, $password);

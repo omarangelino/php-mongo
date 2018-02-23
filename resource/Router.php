@@ -1,7 +1,8 @@
 <?php
 namespace App; 
 
-class Router{
+class Router
+{
 	
 	public static $getRouter = [];
 	public static $postRouter = [];

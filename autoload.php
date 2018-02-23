@@ -45,5 +45,6 @@ if(!$route[$requestUri[0]]){
 	$requestRoute = $route[$requestUri[0]];
 	$controllerName	  = explode('@', $requestRoute)[0];
 	$controllerMethod = explode('@', $requestRoute)[1];
-	$controllerName::$controllerMethod($request);
+	$controller = new $controllerName;
+	$controller->$controllerMethod($request);
 }

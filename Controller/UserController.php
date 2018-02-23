@@ -8,7 +8,7 @@ class UserController{
 
 	public static function Login($request){
 		$password = $request->password;
-		$username = $request->username; // 12345
+		$username = $request->username;
 		$user = User::findUserByCredentials($username, $password);
 		if(!$user){
 			die("Credentials not valid!");
@@ -16,7 +16,6 @@ class UserController{
 		$user = User::createToken($user);
 		header('Content-Type: application/json');
 		echo json_encode($user);
-		
 	}
 
 	public function verify($request){

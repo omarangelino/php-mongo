@@ -19,8 +19,8 @@ class UserController{
 	}
 
 	public function verify($request){
-		$token = $request->token;
-		$username = $request->username;
+		$token = $request->getHeader()['token'];
+		$username = $request->getHeader()['username'];
 		$user = User::findUserByToken($username, $token);
 		if(!$user){
 			die("Credentials not valid!");
